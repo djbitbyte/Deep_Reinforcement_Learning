@@ -32,8 +32,8 @@ if __name__ == "__main__":
                        reward_decay=0.9,
                        e_greedy=0.9,
                        replace_target_iter=200,
-                       memeory_size=2000,
-                       # output_graph=True
+                       memory_size=2000,
+                       output_graph=False
                        )
     env.after(100, run_maze)
     env.mainloop()
