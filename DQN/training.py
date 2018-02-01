@@ -4,7 +4,7 @@ from DQN_brain import DeepQNetwork
 
 def run_maze():
     step = 0
-    for episode in range(300):
+    for episode in range(2):
         observation = env.reset()
 
         while True:
@@ -37,7 +37,8 @@ if __name__ == "__main__":
                        )
     env.after(100, run_maze)
     env.mainloop()
-    RL.plot_cost()
+    DQN.plot_cost()
+    # print(DQN.n_features)
 
 
 

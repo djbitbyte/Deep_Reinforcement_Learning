@@ -29,5 +29,8 @@ https://blog.openai.com/learning-to-cooperate-compete-and-communicate/
 Reinforcement Learning tutorial & algorithms implementation
 https://morvanzhou.github.io/tutorials/machine-learning/reinforcement-learning/
 
+DQN in Pytorch
+http://pytorch.org/tutorials/intermediate/reinforcement_q_learning.html?highlight=parameter%20grad%20data
+
 the Unity Machine Learning Agents - 3D
 https://github.com/Unity-Technologies/ml-agents

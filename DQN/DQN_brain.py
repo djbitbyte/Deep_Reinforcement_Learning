@@ -3,23 +3,23 @@ import numpy as np
 # import pandas as pd
 
 
-np.random.seed(1)
-tf.set_random_seed(1)
+# np.random.seed(1)
+# tf.set_random_seed(1)
 
 
 class DeepQNetwork:
     def __init__(self,
-                n_actions,      # amount of actions
-                n_features,     # amount of features for observation
-                learning_rate=0.01,
-                reward_decay=0.9,
-                e_greedy=0.9,
-                replace_target_iter=300,
-                memory_size=500,
-                batch_size=32,
-                e_greedy_increment=None,
-                output_graph=False
-                ):
+                 n_actions,      # amount of actions
+                 n_features,     # amount of features for observation
+                 learning_rate=0.01,
+                 reward_decay=0.9,
+                 e_greedy=0.9,
+                 replace_target_iter=300,
+                 memory_size=500,
+                 batch_size=32,
+                 e_greedy_increment=None,
+                 output_graph=False
+                 ):
         self.n_actions = n_actions
         self.n_features = n_features
         self.lr = learning_rate
@@ -139,6 +139,7 @@ class DeepQNetwork:
             sample_index = np.random.choice(self.memory_size, size=self.batch_size)
         else:
             sample_index = np.random.choice(self.memory_counter, size=self.batch_size)
+
         batch_memory = self.memory[sample_index]
 
         q_next, q_eval = self.sess.run(
@@ -165,6 +166,9 @@ class DeepQNetwork:
         # increasing epsilon
         self.epsilon = self.epsilon + self.epsilon_increment if self.epsilon < self.epsilon_max else self.epsilon_max
         self.learn_step_counter += 1
+
+
+        print(q_eval.shape)
 
 
     def plot_cost(self):
