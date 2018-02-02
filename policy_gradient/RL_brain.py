@@ -55,7 +55,7 @@ class PolicyGradient:
             name='fc2'
         )
 
-        self.all_act_prob = tf.nn.softmax(all_act, name='act_prob')
+        self.all_act_prob = tf.nn.softmax(all_act, name='act_prob')     # probability for each action
 
         with tf.name_scope('loss'):
             # according to the math equation in the algorithm
