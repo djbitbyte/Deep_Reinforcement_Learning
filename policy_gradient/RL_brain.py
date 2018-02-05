@@ -59,6 +59,7 @@ class PolicyGradient:
 
         with tf.name_scope('loss'):
             # according to the math equation in the algorithm
+            # print(self.sess.run(self.tf_acts))
             neg_log_prob = tf.reduce_sum(-tf.log(self.all_act_prob)*tf.one_hot(self.tf_acts, self.n_actions), axis=1)
             loss = tf.reduce_mean(neg_log_prob * self.tf_vt)
 
@@ -68,6 +69,7 @@ class PolicyGradient:
 
     def choose_action(self, observation):
         prob_weights = self.sess.run(self.all_act_prob, feed_dict={self.tf_obs: observation[np.newaxis, :]})
+        # to choose actions according to the prob
         action = np.random.choice(range(prob_weights.shape[1]), p=prob_weights.ravel())
         return action
 
